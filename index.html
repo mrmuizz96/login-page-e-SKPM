@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .login-container input[type="password"],
+        .login-container select {
+            margin: 10px 0;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .login-container input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-container input[type="button"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login Page</h2>
+        <form id="loginForm">
+            <label for="userType">Select Login Type:</label><br>
+            <select id="userType" name="userType">
+                <option value="teacher">Teacher</option>
+                <option value="student">Student/Parent</option>
+            </select><br><br>
+
+            <label for="password">Enter Password:</label><br>
+            <input type="password" id="password" name="password"><br><br>
+
+            <input type="button" value="Login" onclick="validateLogin()">
+        </form>
+    </div>
+
+    <script>
+        function validateLogin() {
+            var userType = document.getElementById('userType').value;
+            var password = document.getElementById('password').value;
+
+            if ((userType === "teacher" && password === "12345") ||
+                (userType === "student" && password === "skpmstudent")) {
+                window.location.href = "https://sites.google.com/moe-dl.edu.my/e-skpm/home";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>
